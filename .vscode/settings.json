@@ -1,0 +1,20 @@
+{
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.autoGuessEncoding": true,
+    "files.associations": {
+        "*.cjson": "jsonc",
+        "*.wxss": "css",
+        "*.wxs": "javascript",
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "system_error": "cpp",
+        "array": "cpp",
+        "ostream": "cpp"
+    }
+}
