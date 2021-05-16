@@ -17,13 +17,7 @@ https://leetcode-cn.com/problems/combinations/
 ]
 */
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <map>
-#include <chrono>
-
-using namespace std;
+#include "common.h"
 
 void PrintTitle(void)
 {

@@ -1,10 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <map>
-#include <chrono>
+/*
 
-using namespace std;
+*/
+#include "common.h"
+
 void PrintTitle(void)
 {
     string path(__FILE__);
@@ -31,7 +29,8 @@ int main()
 
     //print log
     PrintTitle();
-    cout << "结果: " << ret << endl;
+    cout << "结果: " << endl;
+    cout << ret << end;
     cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
     return 0;
 }
