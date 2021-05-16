@@ -44,10 +44,10 @@ void backtracking(vector<int> &candidates, int target, int tmp_sum,
         ret.push_back(path);
         return;
     }
-    if (tmp_sum > target)
-    {
-        return;
-    }
+    // if (tmp_sum > target)
+    // {
+    //     return;
+    // }
 
     //如果已经知道下一层的sum会大于target，就没有必要进入下一层递归了。
     //可以做一些剪枝，比如将candidates排个序，在某个数之后明显不符合要求，就不需要进入递归了

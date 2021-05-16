@@ -29,50 +29,69 @@ candidates 中的每个数字在每个组合中只能使用一次。
 ]
 */
 #include "common.h"
+/*
+题解：
+这道题目和39.组合总和如下区别：
+
+1. 本题candidates 中的每个数字在每个组合中只能使用一次。
+2. 本题数组candidates的元素是有重复的，而39.组合总和是无重复元素的数组candidates
+
+如果把所有组合求出来，再用set或者map去重，这么做很容易超时！所以要在搜索的过程中就去掉重复组合。
+
+组合问题可以抽象为树形结构，那么“使用过”在这个树形结构上是有两个维度的，
+一个维度是同一树枝上使用过，一个维度是同一树层上使用过。
+
+回看一下题目，元素在同一个组合内是可以重复的，怎么重复都没事，但两个组合不能相同。
+所以我们要去重的是同一树层上的“使用过”，同一树枝上的都是一个组合里的元素，不用去重。
+*/
 
 void backtracking(vector<int> &candidates, int target, int tmp_sum,
-                  int startIndex, vector<int> &path, vector<vector<int>> &ret)
+                  int startIndex, vector<int> &used, vector<int> &path, vector<vector<int>> &ret)
 {
     if (tmp_sum == target)
     {
         ret.push_back(path);
         return;
     }
-    if (tmp_sum > target)
-    {
-        return;
-    }
 
-    //如果已经知道下一层的sum会大于target，就没有必要进入下一层递归了。
-    //可以做一些剪枝，比如将candidates排个序，在某个数之后明显不符合要求，就不需要进入递归了
     for (int i = startIndex; i < candidates.size() && tmp_sum + candidates[i] <= target; ++i)
     {
+        // used[i - 1] == true，说明同一树支candidates[i - 1]使用过
+        // used[i - 1] == false，说明同一树层candidates[i - 1]使用过
+        // 要对同一树层使用过的元素进行跳过
+        if (i > 0 && candidates[i] == candidates[i - 1] && used[i - 1] == 0)
+        {
+            continue;
+        }
         tmp_sum += candidates[i];
         path.push_back(candidates[i]);
-        backtracking(candidates, target, tmp_sum, i, path, ret);
+        used[i] = 1;
+        backtracking(candidates, target, tmp_sum, i + 1, used, path, ret);
         tmp_sum -= candidates[i];
+        used[i] = 0;
         path.pop_back();
     }
 }
-vector<vector<int>> combinationSum(vector<int> &candidates, int target)
+vector<vector<int>> combinationSum2(vector<int> &candidates, int target)
 {
     vector<int> path;
     vector<vector<int>> ret;
+    //used正在使用的位置标记，可以用来判断是否在同一层，是否使用过
+    vector<int> used(candidates.size());
     sort(candidates.begin(), candidates.end());
-
-    backtracking(candidates, target, 0, 0, path, ret);
+    backtracking(candidates, target, 0, 0, used, path, ret);
     return ret;
 }
 
 int main()
 {
     //input init
-    vector<int> nums = {2, 3, 6, 7};
-    int target = 7;
+    vector<int> nums = {10, 1, 2, 7, 6, 1, 5};
+    int target = 8;
 
     //function
     auto start = std::chrono::steady_clock::now();
-    auto ret = combinationSum(nums, target);
+    auto ret = combinationSum2(nums, target);
     auto end = std::chrono::steady_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
 
