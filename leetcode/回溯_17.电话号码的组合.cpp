@@ -22,14 +22,6 @@ https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
 
 #include "common.h"
 
-void PrintTitle(void)
-{
-    string path(__FILE__);
-    auto path_suffix = path.find_last_of('.');
-    auto path_presuffix = path.find_last_of('/') + 1;
-    cout << "[题目：" << path.substr(path_presuffix, path_suffix - path_presuffix) << "]" << endl;
-}
-
 vector<vector<char>> num2str(
     {{'a', 'b', 'c'},
      {'d', 'e', 'f'},
@@ -71,7 +63,7 @@ vector<string> letterCombinations(string digits)
 int main()
 {
     //input init
-    string nums = "";
+    string nums = "23";
 
     //function
     auto start = std::chrono::steady_clock::now();
@@ -80,7 +72,7 @@ int main()
     std::chrono::duration<double> elapsed_seconds = end - start;
 
     //print log
-    PrintTitle();
+    PrintTitle(__FILE__);
     cout << "结果: " << endl;
     PrintContainer(ret);
     cout << "耗时: " << elapsed_seconds.count() << "s" << endl;

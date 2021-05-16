@@ -17,21 +17,7 @@ https://leetcode-cn.com/problems/combination-sum-iii/
 输出: [[1,2,6], [1,3,5], [2,3,4]]
 */
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <map>
-#include <chrono>
-
-using namespace std;
-
-void PrintTitle(void)
-{
-    string path(__FILE__);
-    auto path_suffix = path.find_last_of('.');
-    auto path_presuffix = path.find_last_of('/') + 1;
-    cout << "[题目：" << path.substr(path_presuffix, path_suffix - path_presuffix) << "]" << endl;
-}
+#include "common.h"
 
 //回溯模板
 void backtracking(int startIndex, int k, int sum, int tmp_sum, vector<int> &path, vector<vector<int>> &ret)
@@ -79,7 +65,7 @@ int main()
     auto end = std::chrono::steady_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
 
-    PrintTitle();
+    PrintTitle(__FILE__);
     cout << "结果: " << endl;
     for (vector<int> comb : ret)
     {

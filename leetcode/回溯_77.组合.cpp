@@ -19,14 +19,6 @@ https://leetcode-cn.com/problems/combinations/
 
 #include "common.h"
 
-void PrintTitle(void)
-{
-    string path(__FILE__);
-    auto path_suffix = path.find_last_of('.');
-    auto path_presuffix = path.find_last_of('/') + 1;
-    cout << "[题目：" << path.substr(path_presuffix, path_suffix - path_presuffix) << "]" << endl;
-}
-
 //回溯模板
 void backtracking(int n, int k, int startIndex, vector<int> &path, vector<vector<int>> &ret)
 {
@@ -67,7 +59,7 @@ int main()
     auto end = std::chrono::steady_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
 
-    PrintTitle();
+    PrintTitle(__FILE__);
     cout << "结果: " << endl;
     for (vector<int> comb : ret)
     {

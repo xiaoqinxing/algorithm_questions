@@ -20,4 +20,11 @@ void PrintContainer(Container container)
     cout << "]" << endl;
 }
 
+inline void PrintTitle(string filename)
+{
+    string path(filename);
+    auto path_suffix = path.find_last_of('.');
+    auto path_presuffix = path.find_last_of('/') + 1;
+    cout << "[题目：" << path.substr(path_presuffix, path_suffix - path_presuffix) << "]" << endl;
+}
 #endif
