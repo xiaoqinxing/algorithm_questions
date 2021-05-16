@@ -15,6 +15,8 @@
         "vector": "cpp",
         "system_error": "cpp",
         "array": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "unordered_map": "cpp",
+        "chrono": "cpp"
     }
 }
