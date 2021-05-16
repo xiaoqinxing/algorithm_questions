@@ -5,28 +5,32 @@
 #include <chrono>
 
 using namespace std;
-
-template <class T>
-void PrintMatrix(T begin, T end)
+void PrintTitle(void)
 {
-    for (; begin != end; begin++)
-    {
-        cout << *begin << " ";
-    }
-    cout << endl;
+    string path(__FILE__);
+    auto path_suffix = path.find_last_of('.');
+    auto path_presuffix = path.find_last_of('/') + 1;
+    cout << "[题目：" << path.substr(path_presuffix, path_suffix - path_presuffix) << "]" << endl;
+}
+
+int function(int nums)
+{
+    return nums;
 }
 
 int main()
 {
-    int ret = 0;
-    string path(__FILE__);
-    auto path_suffix = path.find_last_of('.');
-    auto path_presuffix = path.find_last_of('/') + 1;
-    auto start = std::chrono::steady_clock::now();
+    //input init
+    int nums = 1;
 
+    //function
+    auto start = std::chrono::steady_clock::now();
+    auto ret = function(nums);
     auto end = std::chrono::steady_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
-    cout << "[题目：" << path.substr(path_presuffix, path_suffix - path_presuffix) << "]" << endl;
+
+    //print log
+    PrintTitle();
     cout << "结果: " << ret << endl;
     cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
     return 0;
