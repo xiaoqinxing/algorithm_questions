@@ -61,10 +61,7 @@ int main()
     //print log
     PrintTitle(__FILE__);
     cout << "结果: " << endl;
-    for (auto tmp : ret)
-    {
-        PrintContainer(tmp);
-    }
+    Print2DMatrix(ret);
     cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
     return 0;
 }
