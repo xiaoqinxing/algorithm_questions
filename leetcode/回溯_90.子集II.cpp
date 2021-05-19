@@ -43,7 +43,7 @@ int main()
     cout << "结果: " << endl;
     for (auto tmp : ret)
     {
-        PrintContainer(tmp);
+        Print1DMatrix(tmp);
     }
     cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
     return 0;

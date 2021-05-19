@@ -11,7 +11,7 @@
 using namespace std;
 
 template <typename Container>
-void PrintContainer(Container container)
+void Print1DMatrix(Container container)
 {
     cout << "[ ";
     for (auto i : container)
@@ -34,7 +34,7 @@ void Print2DMatrix(T matrix)
 {
     for (auto i : matrix)
     {
-        PrintContainer(i);
+        Print1DMatrix(i);
     }
 }
 
@@ -60,6 +60,7 @@ public:
     {
         auto m_end = elapsed();
         cout << "耗时: " << m_end << "s" << endl;
+        reset();
     }
 
 private:

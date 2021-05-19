@@ -88,7 +88,7 @@ int main()
     cout << "结果: " << endl;
     for (vector<int> item : ret)
     {
-        PrintContainer(item);
+        Print1DMatrix(item);
     }
     cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
     return 0;

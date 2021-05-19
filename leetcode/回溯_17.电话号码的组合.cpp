@@ -74,7 +74,7 @@ int main()
     //print log
     PrintTitle(__FILE__);
     cout << "结果: " << endl;
-    PrintContainer(ret);
+    Print1DMatrix(ret);
     cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
     return 0;
 }
