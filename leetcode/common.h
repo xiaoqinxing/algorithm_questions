@@ -5,8 +5,11 @@
 #include <vector>
 #include <algorithm>
 #include <map>
+#include <unordered_map>
 #include <chrono>
 #include <unordered_set>
+#include <queue>
+#include <list>
 
 using namespace std;
 
@@ -14,9 +17,9 @@ template <typename Container>
 void Print1DMatrix(Container container)
 {
     cout << "[ ";
-    for (auto i : container)
+    for (auto i = container.begin(); i != container.end(); ++i)
     {
-        cout << i << ' ';
+        cout << *i << ' ';
     }
     cout << "]" << endl;
 }
