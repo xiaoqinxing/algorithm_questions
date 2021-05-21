@@ -2,6 +2,8 @@
 
 */
 #include "common.h"
+#include "tree.h"
+#include "timer.h"
 
 int function(int nums)
 {
