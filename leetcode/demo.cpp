@@ -12,6 +12,7 @@ int function(int nums)
 
 int main()
 {
+    PrintTitle(__FILE__);
     //input init
     int nums = 1;
 
@@ -20,8 +21,7 @@ int main()
     auto ret = function(nums);
     t.printElapsed();
 
-    //print log
-    PrintTitle(__FILE__);
+    //result
     cout << "结果: " << endl;
     cout << ret << endl;
     return 0;

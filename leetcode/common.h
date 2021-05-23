@@ -14,7 +14,7 @@
 using namespace std;
 
 template <typename Container>
-void Print1DMatrix(Container container)
+void Print1DMatrix(Container &container)
 {
     cout << "[ ";
     for (auto i = container.begin(); i != container.end(); ++i)
@@ -33,7 +33,7 @@ inline void PrintTitle(string filename)
 }
 
 template <typename T>
-void Print2DMatrix(T matrix)
+void Print2DMatrix(T &matrix)
 {
     for (auto i : matrix)
     {

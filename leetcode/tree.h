@@ -100,16 +100,16 @@ void destoryTree(TreeNode *tree)
     }
 }
 
-int vec_left[100] = {0};
+static int __vec_left[100] = {0};
 void printTree(TreeNode *root, int ident = 0)
 {
     if (ident > 0)
     {
         for (int i = 0; i < ident - 1; ++i)
         {
-            printf(vec_left[i] ? "│   " : "    ");
+            printf(__vec_left[i] ? "│   " : "    ");
         }
-        printf(vec_left[ident - 1] ? "├── " : "└── ");
+        printf(__vec_left[ident - 1] ? "├── " : "└── ");
     }
 
     if (!root)
@@ -124,9 +124,9 @@ void printTree(TreeNode *root, int ident = 0)
         return;
     }
 
-    vec_left[ident] = 1;
+    __vec_left[ident] = 1;
     printTree(root->left, ident + 1);
-    vec_left[ident] = 0;
+    __vec_left[ident] = 0;
     printTree(root->right, ident + 1);
 }
 #endif
