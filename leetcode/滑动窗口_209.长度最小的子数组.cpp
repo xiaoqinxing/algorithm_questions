@@ -29,6 +29,7 @@ https://leetcode-cn.com/problems/minimum-size-subarray-sum/submissions/
 1 <= nums[i] <= 105
 */
 #include "common.h"
+#include "timer.h"
 
 int minSubArrayLen(int target, vector<int> &nums)
 {
@@ -63,7 +64,6 @@ int main()
 
     //print log
     PrintTitle(__FILE__);
-    cout << "结果: " << endl;
-    cout << ret << endl;
+    PrintVal(ret);
     return 0;
 }

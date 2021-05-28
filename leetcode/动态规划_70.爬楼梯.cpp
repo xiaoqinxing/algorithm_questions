@@ -23,6 +23,7 @@
 3.  2 阶 + 1 阶
 */
 #include "common.h"
+#include "timer.h"
 
 int climbStairs(int n)
 {
@@ -40,19 +41,15 @@ int climbStairs(int n)
 
 int main()
 {
+    PrintTitle(__FILE__);
     //input init
     int nums = 10;
 
     //function
-    auto start = std::chrono::steady_clock::now();
+    Timer t;
     auto ret = climbStairs(nums);
-    auto end = std::chrono::steady_clock::now();
-    std::chrono::duration<double> elapsed_seconds = end - start;
+    t.printElapsed();
+    PrintVal(ret);
 
-    //print log
-    PrintTitle(__FILE__);
-    cout << "结果: " << endl;
-    cout << ret << endl;
-    cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
     return 0;
 }

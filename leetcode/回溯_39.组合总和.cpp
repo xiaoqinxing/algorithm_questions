@@ -35,6 +35,7 @@ candidate 中的每个元素都是独一无二的。
 1 <= target <= 500
 */
 #include "common.h"
+#include "timer.h"
 
 void backtracking(vector<int> &candidates, int target, int tmp_sum,
                   int startIndex, vector<int> &path, vector<vector<int>> &ret)
@@ -85,11 +86,7 @@ int main()
 
     //print log
     PrintTitle(__FILE__);
-    cout << "结果: " << endl;
-    for (vector<int> item : ret)
-    {
-        Print1DMatrix(item);
-    }
+    Print2DMatrix(ret);
     cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
     return 0;
 }

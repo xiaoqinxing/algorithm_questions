@@ -2,6 +2,7 @@
 
 */
 #include "common.h"
+#include "timer.h"
 
 vector<int> topKFrequent(vector<int> &nums, int k)
 {
@@ -74,13 +75,11 @@ int main()
     vector<int> ret;
     ret = topKFrequent(nums, k);
     t.printElapsed();
-    cout << "结果: " << endl;
     Print1DMatrix(ret);
+
     t.reset();
     ret = topKFrequent_II(nums, k);
     t.printElapsed();
-
-    cout << "结果: " << endl;
     Print1DMatrix(ret);
     return 0;
 }

@@ -38,6 +38,7 @@ n == obstacleGrid[i].length
 obstacleGrid[i][j] 为 0 或 1
 */
 #include "common.h"
+#include "timer.h"
 
 int uniquePathsWithObstacles(vector<vector<int>> &obstacleGrid)
 {
@@ -63,12 +64,13 @@ int uniquePathsWithObstacles(vector<vector<int>> &obstacleGrid)
             }
         }
     }
-    Print2DMatrix(dp);
+    // Print2DMatrix(dp);
     return dp[height - 1][width - 1];
 }
 
 int main()
 {
+    PrintTitle(__FILE__);
     //input init
     // vector<vector<int>> obstacleGrid = {
     //     {0, 0, 0},
@@ -78,15 +80,10 @@ int main()
         {1}};
 
     //function
-    auto start = std::chrono::steady_clock::now();
+    Timer t;
     auto ret = uniquePathsWithObstacles(obstacleGrid);
-    auto end = std::chrono::steady_clock::now();
-    std::chrono::duration<double> elapsed_seconds = end - start;
+    t.printElapsed();
+    PrintVal(ret);
 
-    //print log
-    PrintTitle(__FILE__);
-    cout << "结果: " << endl;
-    cout << ret << endl;
-    cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
     return 0;
 }

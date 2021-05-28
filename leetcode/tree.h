@@ -81,13 +81,41 @@ TreeNode *createTree(string input)
     return root;
 }
 
-void traversalTree(TreeNode *cur, vector<int> &vec)
+// void traversalTree(TreeNode *cur, vector<int> &vec)
+// {
+//     if (cur == NULL)
+//         return;
+//     vec.push_back(cur->val);        // 中
+//     traversalTree(cur->left, vec);  // 左
+//     traversalTree(cur->right, vec); // 右
+// }
+
+vector<vector<int>> traversalTree(TreeNode *root)
 {
-    if (cur == NULL)
-        return;
-    vec.push_back(cur->val);        // 中
-    traversalTree(cur->left, vec);  // 左
-    traversalTree(cur->right, vec); // 右
+    vector<vector<int>> ret;
+    queue<TreeNode *> bfs;
+    if (root != nullptr)
+        bfs.push(root);
+    int len = 1;
+    vector<int> ret_tmp;
+    TreeNode *tmp;
+    while (!bfs.empty())
+    {
+        len = bfs.size();
+        ret_tmp.clear();
+        for (int i = 0; i < len; ++i)
+        {
+            tmp = bfs.front();
+            ret_tmp.push_back(tmp->val);
+            if (tmp->left != nullptr)
+                bfs.push(tmp->left);
+            if (tmp->right != nullptr)
+                bfs.push(tmp->right);
+            bfs.pop();
+        }
+        ret.push_back(ret_tmp);
+    }
+    return ret;
 }
 
 void destoryTree(TreeNode *tree)

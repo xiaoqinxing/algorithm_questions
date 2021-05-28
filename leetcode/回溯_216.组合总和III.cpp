@@ -18,6 +18,7 @@ https://leetcode-cn.com/problems/combination-sum-iii/
 */
 
 #include "common.h"
+#include "timer.h"
 
 //回溯模板
 void backtracking(int startIndex, int k, int sum, int tmp_sum, vector<int> &path, vector<vector<int>> &ret)
@@ -66,16 +67,7 @@ int main()
     std::chrono::duration<double> elapsed_seconds = end - start;
 
     PrintTitle(__FILE__);
-    cout << "结果: " << endl;
-    for (vector<int> comb : ret)
-    {
-        cout << "[  ";
-        for (int i : comb)
-        {
-            cout << i << "  ";
-        }
-        cout << ']' << endl;
-    }
+    Print2DMatrix(ret);
     cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
     return 0;
 }

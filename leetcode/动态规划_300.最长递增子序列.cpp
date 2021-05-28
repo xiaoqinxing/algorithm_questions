@@ -2,6 +2,7 @@
 
 */
 #include "common.h"
+#include "timer.h"
 
 int lengthOfLIS(vector<int> &nums)
 {
@@ -33,12 +34,13 @@ int lengthOfLIS(vector<int> &nums)
             ret = dp[i];
         }
     }
-    Print1DMatrix(dp);
+    // Print1DMatrix(dp);
     return ret;
 }
 
 int main()
 {
+    PrintTitle(__FILE__);
     //input init
     vector<int> nums({10, 9, 2, 5, 3, 7, 101, 18});
 
@@ -46,10 +48,6 @@ int main()
     Timer t;
     auto ret = lengthOfLIS(nums);
     t.printElapsed();
-
-    //print log
-    PrintTitle(__FILE__);
-    cout << "结果: " << endl;
-    cout << ret << endl;
+    PrintVal(ret);
     return 0;
 }

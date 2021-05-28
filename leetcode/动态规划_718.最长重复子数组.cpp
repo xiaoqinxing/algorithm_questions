@@ -20,6 +20,7 @@ B: [3,2,1,4,7]
 0 <= A[i], B[i] < 100
 */
 #include "common.h"
+#include "timer.h"
 
 int findLength(vector<int> &nums1, vector<int> &nums2)
 {
@@ -76,7 +77,6 @@ int main()
 
     //print log
     PrintTitle(__FILE__);
-    cout << "结果: " << endl;
-    cout << ret << endl;
+    PrintVal(ret);
     return 0;
 }

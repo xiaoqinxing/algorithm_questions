@@ -2,6 +2,7 @@
 
 */
 #include "common.h"
+#include "timer.h"
 
 void backtracking(vector<int> &nums, int startIndex, vector<int> &path, vector<vector<int>> &ret)
 {
@@ -38,11 +39,7 @@ int main()
 
     //print log
     PrintTitle(__FILE__);
-    cout << "结果: " << endl;
-    for (auto tmp : ret)
-    {
-        Print1DMatrix(tmp);
-    }
+    Print2DMatrix(ret);
     cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
     return 0;
 }

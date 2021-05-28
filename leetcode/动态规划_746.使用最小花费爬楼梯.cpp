@@ -2,6 +2,7 @@
 
 */
 #include "common.h"
+#include "timer.h"
 
 int minCostClimbingStairs(vector<int> &cost)
 {
@@ -31,8 +32,7 @@ int main()
 
     //print log
     PrintTitle(__FILE__);
-    cout << "结果: " << endl;
-    cout << ret << endl;
+    PrintVal(ret);
     cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
     return 0;
 }

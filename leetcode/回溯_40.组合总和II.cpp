@@ -29,6 +29,7 @@ candidates 中的每个数字在每个组合中只能使用一次。
 ]
 */
 #include "common.h"
+#include "timer.h"
 /*
 题解：
 这道题目和39.组合总和如下区别：
@@ -97,11 +98,7 @@ int main()
 
     //print log
     PrintTitle(__FILE__);
-    cout << "结果: " << endl;
-    for (vector<int> item : ret)
-    {
-        Print1DMatrix(item);
-    }
+    Print2DMatrix(ret);
     cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
     return 0;
 }

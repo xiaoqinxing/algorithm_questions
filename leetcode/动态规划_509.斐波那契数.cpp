@@ -2,6 +2,7 @@
 
 */
 #include "common.h"
+#include "timer.h"
 
 int fib(int n)
 {
@@ -21,19 +22,14 @@ int fib(int n)
 
 int main()
 {
+    PrintTitle(__FILE__);
     //input init
     int nums = 4;
 
     //function
-    auto start = std::chrono::steady_clock::now();
+    Timer t;
     auto ret = fib(nums);
-    auto end = std::chrono::steady_clock::now();
-    std::chrono::duration<double> elapsed_seconds = end - start;
-
-    //print log
-    PrintTitle(__FILE__);
-    cout << "结果: " << endl;
-    cout << ret << endl;
-    cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
+    t.printElapsed();
+    PrintVal(ret);
     return 0;
 }

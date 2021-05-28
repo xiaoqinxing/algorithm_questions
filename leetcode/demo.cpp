@@ -20,9 +20,7 @@ int main()
     Timer t;
     auto ret = function(nums);
     t.printElapsed();
+    PrintVal(ret);
 
-    //result
-    cout << "结果: " << endl;
-    cout << ret << endl;
     return 0;
 }

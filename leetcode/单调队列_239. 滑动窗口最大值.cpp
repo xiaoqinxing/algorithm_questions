@@ -36,6 +36,7 @@ https://leetcode-cn.com/problems/sliding-window-maximum/
 输出：[4]
 */
 #include "common.h"
+#include "timer.h"
 
 //构造一个单调递减的队列，队列头永远是最大的数(注意需要是双端队列deque)
 //pop的时候如果是最大的数，就pop，push的时候，把按照从大到小的顺序插入
@@ -114,6 +115,7 @@ vector<int> maxSlidingWindow_II(vector<int> &nums, int k)
 
 int main()
 {
+    PrintTitle(__FILE__);
     //input init
     vector<int> nums = {1, 3, -1, -3, 5, 3, 6, 7};
     int k = 3;
@@ -124,12 +126,12 @@ int main()
 
     ret = maxSlidingWindow(nums, k);
     t.printElapsed();
+    Print1DMatrix(ret);
+
+    t.reset();
     ret = maxSlidingWindow_II(nums, k);
     t.printElapsed();
-
-    //print log
-    PrintTitle(__FILE__);
-    cout << "结果: " << endl;
     Print1DMatrix(ret);
+
     return 0;
 }

@@ -25,6 +25,7 @@
 -109 <= nums[i] <= 109
 */
 #include "common.h"
+#include "timer.h"
 
 //方法一：双指针
 int findLengthOfLCIS(vector<int> &nums)
@@ -93,6 +94,7 @@ int findLengthOfLCIS_III(vector<int> &nums)
 
 int main()
 {
+    PrintTitle(__FILE__);
     //input init
     vector<int> nums = {1, 3, 5, 4, 7};
 
@@ -101,14 +103,17 @@ int main()
     Timer t;
     ret = findLengthOfLCIS(nums);
     t.printElapsed();
+    PrintVal(ret);
+
+    t.reset();
     ret = findLengthOfLCIS_II(nums);
     t.printElapsed();
+    PrintVal(ret);
+
+    t.reset();
     ret = findLengthOfLCIS_III(nums);
     t.printElapsed();
+    PrintVal(ret);
 
-    //print log
-    PrintTitle(__FILE__);
-    cout << "结果: " << endl;
-    cout << ret << endl;
     return 0;
 }

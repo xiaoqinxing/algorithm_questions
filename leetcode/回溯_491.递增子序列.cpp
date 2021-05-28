@@ -17,6 +17,7 @@
 给定数组中可能包含重复数字，相等的数字应该被视为递增的一种情况。
 */
 #include "common.h"
+#include "timer.h"
 //子集问题不需要退出条件，因为for循环就是遍历了
 //不用同一层重复元素的子集问题，可以用nums[i] == nums[i-1]进行判断，这样第一个不同的书一定是遍历到了的
 //重复的数没有被遍历到
@@ -60,7 +61,6 @@ int main()
 
     //print log
     PrintTitle(__FILE__);
-    cout << "结果: " << endl;
     Print2DMatrix(ret);
     cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
     return 0;

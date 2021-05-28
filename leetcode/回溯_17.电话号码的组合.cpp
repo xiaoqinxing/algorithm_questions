@@ -21,6 +21,7 @@ https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
 */
 
 #include "common.h"
+#include "timer.h"
 
 vector<vector<char>> num2str(
     {{'a', 'b', 'c'},
@@ -73,7 +74,6 @@ int main()
 
     //print log
     PrintTitle(__FILE__);
-    cout << "结果: " << endl;
     Print1DMatrix(ret);
     cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
     return 0;

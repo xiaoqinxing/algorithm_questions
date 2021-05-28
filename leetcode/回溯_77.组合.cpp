@@ -18,6 +18,7 @@ https://leetcode-cn.com/problems/combinations/
 */
 
 #include "common.h"
+#include "timer.h"
 
 //回溯模板
 void backtracking(int n, int k, int startIndex, vector<int> &path, vector<vector<int>> &ret)
@@ -60,16 +61,7 @@ int main()
     std::chrono::duration<double> elapsed_seconds = end - start;
 
     PrintTitle(__FILE__);
-    cout << "结果: " << endl;
-    for (vector<int> comb : ret)
-    {
-        cout << "[  ";
-        for (int i : comb)
-        {
-            cout << i << "  ";
-        }
-        cout << ']' << endl;
-    }
+    Print2DMatrix(ret);
     cout << "耗时: " << elapsed_seconds.count() << "s" << endl;
     return 0;
 }
