@@ -15,16 +15,15 @@ struct TreeNode
 
 void trimLeftTrailingSpaces(string &input)
 {
-    input.erase(input.begin(), find_if(input.begin(), input.end(), [](int ch) {
-                    return !isspace(ch);
-                }));
+    input.erase(input.begin(), find_if(input.begin(), input.end(), [](int ch)
+                                       { return !isspace(ch); }));
 }
 
 void trimRightTrailingSpaces(string &input)
 {
-    input.erase(find_if(input.rbegin(), input.rend(), [](int ch) {
-                    return !isspace(ch);
-                }).base(),
+    input.erase(find_if(input.rbegin(), input.rend(), [](int ch)
+                        { return !isspace(ch); })
+                    .base(),
                 input.end());
 }
 
@@ -157,4 +156,34 @@ void printTree(TreeNode *root, int ident = 0)
     __vec_left[ident] = 0;
     printTree(root->right, ident + 1);
 }
+
+class TreeTest
+{
+public:
+    TreeTest(const string s)
+    {
+        root = createTree(s);
+    }
+
+    ~TreeTest()
+    {
+        if (root)
+        {
+            destoryTree(root);
+        }
+    }
+
+    void print()
+    {
+        printTree(root);
+    }
+
+    TreeNode *getroot()
+    {
+        return root;
+    }
+
+private:
+    TreeNode *root;
+};
 #endif
