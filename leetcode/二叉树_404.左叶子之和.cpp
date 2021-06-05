@@ -13,7 +13,7 @@
 在这个二叉树中，有两个左叶子，分别是 9 和 15，所以返回 24
 */
 #include "common.h"
-#include "tree.h"
+#include "test_tree.h"
 #include "timer.h"
 
 //回溯

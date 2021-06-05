@@ -13,20 +13,6 @@ struct TreeNode
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-void trimLeftTrailingSpaces(string &input)
-{
-    input.erase(input.begin(), find_if(input.begin(), input.end(), [](int ch)
-                                       { return !isspace(ch); }));
-}
-
-void trimRightTrailingSpaces(string &input)
-{
-    input.erase(find_if(input.rbegin(), input.rend(), [](int ch)
-                        { return !isspace(ch); })
-                    .base(),
-                input.end());
-}
-
 TreeNode *createTree(string input)
 {
     trimLeftTrailingSpaces(input);

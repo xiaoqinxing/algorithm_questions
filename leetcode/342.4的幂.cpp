@@ -30,7 +30,7 @@
 你能不使用循环或者递归来完成本题吗？
 */
 #include "common.h"
-#include "tree.h"
+#include "test_tree.h"
 #include "timer.h"
 
 //循环

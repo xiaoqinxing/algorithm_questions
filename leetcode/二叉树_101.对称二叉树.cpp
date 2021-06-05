@@ -23,7 +23,7 @@ https://leetcode-cn.com/problems/symmetric-tree/
    3    3
 */
 #include "common.h"
-#include "tree.h"
+#include "test_tree.h"
 #include "timer.h"
 bool isReverseSame(vector<TreeNode *> &vec)
 {

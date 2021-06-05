@@ -60,4 +60,18 @@ inline void PrintTitle(string filename)
     cout << "[题目：" << path.substr(path_presuffix, path_suffix - path_presuffix) << "]" << endl;
 }
 
+void trimLeftTrailingSpaces(string &input)
+{
+    input.erase(input.begin(), find_if(input.begin(), input.end(), [](int ch)
+                                       { return !isspace(ch); }));
+}
+
+void trimRightTrailingSpaces(string &input)
+{
+    input.erase(find_if(input.rbegin(), input.rend(), [](int ch)
+                        { return !isspace(ch); })
+                    .base(),
+                input.end());
+}
+
 #endif

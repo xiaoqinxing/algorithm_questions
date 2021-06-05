@@ -2,7 +2,7 @@
 
 */
 #include "common.h"
-#include "tree.h"
+#include "test_tree.h"
 #include "timer.h"
 
 void preorderTraversal(TreeNode *root, vector<int> &ret)

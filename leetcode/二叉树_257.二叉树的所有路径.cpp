@@ -19,7 +19,7 @@
 解释: 所有根节点到叶子节点的路径为: 1->2->5, 1->3
 */
 #include "common.h"
-#include "tree.h"
+#include "test_tree.h"
 #include "timer.h"
 
 void backtracking(TreeNode *root, vector<string> &ret, vector<int> &path)

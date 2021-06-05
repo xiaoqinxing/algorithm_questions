@@ -34,7 +34,7 @@
 -10^8 <= target <= 10^8
 */
 #include "common.h"
-#include "tree.h"
+#include "test_tree.h"
 #include "timer.h"
 
 //暴力前缀和

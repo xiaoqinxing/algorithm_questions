@@ -29,7 +29,7 @@
 -1000 <= targetSum <= 1000
 */
 #include "common.h"
-#include "tree.h"
+#include "test_tree.h"
 #include "timer.h"
 
 int sum = 0;

@@ -17,7 +17,7 @@
 返回它的最大深度 3 。
 */
 #include "common.h"
-#include "tree.h"
+#include "test_tree.h"
 #include "timer.h"
 
 //回溯

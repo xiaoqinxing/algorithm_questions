@@ -30,7 +30,7 @@
 -104 <= Node.val <= 104
 */
 #include "common.h"
-#include "tree.h"
+#include "test_tree.h"
 #include "timer.h"
 int result = 0;
 int getDepth(TreeNode *root)

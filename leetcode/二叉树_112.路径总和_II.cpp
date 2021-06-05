@@ -29,7 +29,7 @@
 -1000 <= targetSum <= 1000
 */
 #include "common.h"
-#include "tree.h"
+#include "test_tree.h"
 #include "timer.h"
 
 vector<vector<int>> ret;
@@ -41,24 +41,41 @@ void backtracking(TreeNode *root, int targetSum)
     {
         return;
     }
-    if (!root->left && !root->right && sum == targetSum)
+    if (!root->left && !root->right && root->val == targetSum)
     {
+        path.push_back(root->val);
         ret.push_back(path);
+        path.pop_back();
         return;
     }
-    if (!root->left && !root->right)
-        return;
-    sum += root->val;
-    path.push_back(root->val);
-    backtracking(root->left, targetSum);
-    path.pop_back();
-    sum -= root->val;
 
-    sum += root->val;
     path.push_back(root->val);
-    backtracking(root->right, targetSum);
+    backtracking(root->left, targetSum - root->val);
+    backtracking(root->right, targetSum - root->val);
     path.pop_back();
-    sum -= root->val;
+    return;
+}
+
+//最终版本！
+void backtracking_II(TreeNode *root, int targetSum)
+{
+    if (!root)
+    {
+        return;
+    }
+
+    path.push_back(root->val);
+    targetSum -= root->val;
+    if (!root->left && !root->right && 0 == targetSum)
+    {
+        ret.push_back(path);
+        //return; //回溯之前不能return!!!!!
+    }
+
+    backtracking_II(root->left, targetSum);
+    backtracking_II(root->right, targetSum);
+    path.pop_back();
+    return;
 }
 vector<vector<int>> pathSum(TreeNode *root, int targetSum)
 {
@@ -99,6 +116,13 @@ vector<vector<int>> pathSum_II(TreeNode *root, int targetSum)
     return ret;
 }
 
+vector<vector<int>> pathSum_III(TreeNode *root, int targetSum)
+{
+    ret.clear();
+    backtracking_II(root, targetSum);
+    return ret;
+}
+
 int main()
 {
     PrintTitle(__FILE__);
@@ -115,6 +139,11 @@ int main()
 
     t.reset();
     ret = pathSum_II(tree.getroot(), target);
+    t.printElapsed();
+    Print2DMatrix(ret);
+
+    t.reset();
+    ret = pathSum_III(tree.getroot(), target);
     t.printElapsed();
     Print2DMatrix(ret);
 
