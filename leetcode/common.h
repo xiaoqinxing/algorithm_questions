@@ -14,7 +14,7 @@
 using namespace std;
 
 template <typename Container>
-void Print1DMatrix(Container &container, bool prefix = true)
+void Print1DMatrix(Container &container, bool prefix = false)
 {
     if (prefix == true)
     {
@@ -40,8 +40,7 @@ void Print2DMatrix(T &matrix)
     {
         Print1DMatrix(i, false);
     }
-    cout << "}" << endl
-         << endl;
+    cout << "}" << endl;
 }
 
 template <typename T>
@@ -73,5 +72,20 @@ void trimRightTrailingSpaces(string &input)
                     .base(),
                 input.end());
 }
+
+#define TEST(func, nums, printinput, printret) \
+    {                                          \
+        cout << "输入: ";                      \
+        printinput(nums);                      \
+        t.reset();                             \
+        ret = func(nums);                      \
+        t.printElapsed();                      \
+        printret(ret);                         \
+        cout << endl;                          \
+    }
+
+#define INIT(val) \
+    Timer t;      \
+    val ret;
 
 #endif
