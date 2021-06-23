@@ -10,6 +10,7 @@
 #include <unordered_set>
 #include <queue>
 #include <list>
+#include <set>
 
 using namespace std;
 
@@ -60,7 +61,10 @@ void PrintVal(T &val, bool prefix = true)
         cout << "结果: ";
     }
     cout << val << endl;
-    cout << endl;
+    if (prefix == true)
+    {
+        cout << endl;
+    }
 }
 
 inline void PrintTitle(string filename)
@@ -88,16 +92,18 @@ void trimRightTrailingSpaces(string &input)
 #define TEST(func, nums, printinput, printret) \
     {                                          \
         cout << "输入: ";                      \
-        printinput(nums, false);               \
+        input = nums;                          \
+        printinput(input, false);              \
         t.reset();                             \
-        ret = func(nums);                      \
+        ret = func(input);                     \
         t.printElapsed();                      \
         printret(ret);                         \
         cout << endl;                          \
     }
 
-#define INIT(val) \
-    Timer t;      \
-    val ret;
+#define INIT(inputtype, outputtype) \
+    Timer t;                        \
+    inputtype input;                \
+    outputtype ret;
 
 #endif

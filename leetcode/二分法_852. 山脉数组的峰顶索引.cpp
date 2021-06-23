@@ -78,7 +78,7 @@ int peakIndexInMountainArray(vector<int> arr)
 int main()
 {
     PrintTitle(__FILE__);
-    INIT(int);
+    INIT(vector<int>, int);
     //input init
     vector<int> nums1 = {0, 1, 0};
     vector<int> nums2 = {0, 2, 1, 0};
@@ -86,7 +86,7 @@ int main()
     vector<int> nums4 = {3, 4, 5, 1};
     vector<int> nums5 = {24, 69, 100, 99, 79, 78, 67, 36, 26, 19};
 
-    TEST(peakIndexInMountainArray, nums1, Print1DMatrix, PrintVal);
+    TEST(peakIndexInMountainArray, {0, 1, 0}, Print1DMatrix, PrintVal);
     TEST(peakIndexInMountainArray, nums2, Print1DMatrix, PrintVal);
     TEST(peakIndexInMountainArray, nums3, Print1DMatrix, PrintVal);
     TEST(peakIndexInMountainArray, nums4, Print1DMatrix, PrintVal);
