@@ -9,7 +9,9 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/out/${fileBasenameNoExtension}"
+                "${fileDirname}/out/${fileBasenameNoExtension}",
+                "-fsanitize=address",
+                "-static-libasan"
             ],
             "options": {
                 "cwd": "/usr/bin"
