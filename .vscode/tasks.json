@@ -11,6 +11,7 @@
                 "-o",
                 "${fileDirname}/out/${fileBasenameNoExtension}",
                 "-fsanitize=address",
+                "-fno-omit-frame-pointer",
                 "-static-libasan"
             ],
             "options": {
