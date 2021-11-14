@@ -10,9 +10,11 @@
                 "${file}",
                 "-o",
                 "${fileDirname}/out/${fileBasenameNoExtension}",
-                "-fsanitize=address",
-                "-fno-omit-frame-pointer",
-                "-static-libasan"
+                // "-fsanitize=address",
+                // "-fno-omit-frame-pointer",
+                // "-static-libasan",
+                "-std=c++17",
+                // "-fno-elide-constructors"
             ],
             "options": {
                 "cwd": "/usr/bin"

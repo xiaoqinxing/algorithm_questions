@@ -67,6 +67,27 @@ void PrintVal(T &val, bool prefix = true)
     }
 }
 
+#define PRINT(x)        \
+    do                  \
+    {                   \
+        auto ret = (x); \
+        PrintVal(ret);  \
+    } while (0);
+
+#define PRINT1D(x)          \
+    do                      \
+    {                       \
+        auto ret = (x);     \
+        Print1DMatrix(ret); \
+    } while (0);
+
+#define PRINT2D(x)          \
+    do                      \
+    {                       \
+        auto ret = (x);     \
+        Print2DMatrix(ret); \
+    } while (0);
+
 inline void PrintTitle(string filename)
 {
     string path(filename);
